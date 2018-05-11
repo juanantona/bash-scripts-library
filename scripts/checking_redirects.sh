@@ -13,7 +13,7 @@ exec &> $OUTPUT_FILE
   TEST_NUMBER=1
   TEST_OK=0
   TEST_FAIL=0
-  cat $INPUT_FILE | egrep -v '^#' | ( while read line  
+  cat $INPUT_FILE | tr '\r\n' '\n' | egrep -v '^#' | ( while read line  
     do
       ORIGIN_URL=$(echo "$line" | cut -d";" -f1)
       EXPECTED_URL=$(echo "$line" | cut -d";" -f2)
